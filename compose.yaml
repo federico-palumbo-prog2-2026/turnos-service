@@ -1,0 +1,15 @@
+services:
+  turnos-db:
+    image: postgres:17-alpine
+    container_name: turnos-db
+    environment:
+      POSTGRES_DB: ${TURNOS_DB_NAME}
+      POSTGRES_USER: ${TURNOS_DB_USER}
+      POSTGRES_PASSWORD: ${TURNOS_DB_PASSWORD}
+    ports:
+      - "5434:5432"
+    volumes:
+      - turnos-db-data:/var/lib/postgresql/data
+
+volumes:
+  turnos-db-data:
