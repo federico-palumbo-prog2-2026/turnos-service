@@ -1,3 +1,16 @@
 spring:
   application:
     name: turnos-service
+  datasource:
+    url: ${TURNOS_DB_URL:jdbc:postgresql://localhost:5434/turnos}
+    username: ${TURNOS_DB_USER:turnos}
+    password: ${TURNOS_DB_PASSWORD:turnos_dev}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+server:
+  port: 8082
